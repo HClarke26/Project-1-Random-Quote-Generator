@@ -44,7 +44,11 @@ project 1 - A Random Quote Generator
  * `getRandomQuote` function
 ***/
 
-
+function getRandomQuote () {
+  let randomNumber = Math.floor(Math.random() * quotes.length) 
+  return quotes[randomNumber]
+}
+getRandomQuote();
 
 /***
  * `printQuote` function
