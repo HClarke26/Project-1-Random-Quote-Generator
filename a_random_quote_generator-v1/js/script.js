@@ -3,7 +3,7 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// quotes array 
+// Array of quotes
   const quotes = [
   
     { quote: "The greatest mistake you can make in life is to be continually fearing you will make one.", 
@@ -34,45 +34,34 @@ project 1 - A Random Quote Generator
 
  // console.log(quotes);
 
-/***
- * `getRandomQuote` function
-***/
-
+// getRandomQuote funtion
 function getRandomQuote () {
-  let randomNumber = Math.floor(Math.random() * quotes.length) 
-  return quotes[randomNumber]
+  let randomNumber = Math.floor(Math.random() * quotes.length); // Generates random number between 0 and the length of quotes array.
+  return quotes[randomNumber] 
 }
 getRandomQuote();
 
 
 
-/***
- * `printQuote` function
-***/
-
+// printQuote function
 function printQuote () {
-let randomQuoteObject = getRandomQuote();
-let html = '' ;
+let randomQuoteObject = getRandomQuote(); // Calls getRandomQuote function.
+let html = '' ; // Starts empty string. 
 html += '<p class="quote">' + randomQuoteObject.quote + '</p>' ;
 html += '<p class="source">' + randomQuoteObject.source ;
-  if ("citation" in randomQuoteObject) {
+  if ("citation" in randomQuoteObject) { //if statement to validate whether the object contains a citation.
  html += "<span class='citation'> " + randomQuoteObject.citation + "</span>";
 }
-  if ("year" in randomQuoteObject) {
+  if ("year" in randomQuoteObject) { //if statement to validate whether the object contains a year.
   html += "<span class='year'> " + randomQuoteObject.year + "</span>";
  }
-  if ("tags" in randomQuoteObject) {
+  if ("tags" in randomQuoteObject) { //if statement to validate whether the object contains a tag/tags.
   html += "<span class='tags'> " + ', tags: ' + randomQuoteObject.tags + "</span>";
  }
 html += '</p>' ;
-return html;
 document.getElementById('quote-box').innerHTML = html;
 }
 printQuote();
-
-
-
-
 
 
 /***
