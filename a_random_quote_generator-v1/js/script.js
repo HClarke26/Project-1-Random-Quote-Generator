@@ -48,12 +48,16 @@ function getRandomQuote () {
   let randomNumber = Math.floor(Math.random() * quotes.length) 
   return quotes[randomNumber]
 }
-getRandomQuote();
+// getRandomQuote();
 
 /***
  * `printQuote` function
 ***/
 
+function printQuote () {
+let randomQuote = getRandomQuote();
+let html = 
+}
 
 
 /***
