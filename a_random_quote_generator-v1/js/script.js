@@ -3,12 +3,7 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
 // quotes array 
-
   const quotes = [
   
     { quote: "The greatest mistake you can make in life is to be continually fearing you will make one.", 
@@ -39,7 +34,6 @@ project 1 - A Random Quote Generator
 
  // console.log(quotes);
 
-
 /***
  * `getRandomQuote` function
 ***/
@@ -48,16 +42,37 @@ function getRandomQuote () {
   let randomNumber = Math.floor(Math.random() * quotes.length) 
   return quotes[randomNumber]
 }
-// getRandomQuote();
+getRandomQuote();
+
+
 
 /***
  * `printQuote` function
 ***/
 
 function printQuote () {
-let randomQuote = getRandomQuote();
-let html = 
+let randomQuoteObject = getRandomQuote();
+let html = '' ;
+html += '<p class="quote">' + randomQuoteObject.quote + '</p>' ;
+html += '<p class="source">' + randomQuoteObject.source ;
+  if ("citation" in randomQuoteObject) {
+ html += "<span class='citation'> " + randomQuoteObject.citation + "</span>";
 }
+  if ("year" in randomQuoteObject) {
+  html += "<span class='year'> " + randomQuoteObject.year + "</span>";
+ }
+  if ("tags" in randomQuoteObject) {
+  html += "<span class='tags'> " + ', tags: ' + randomQuoteObject.tags + "</span>";
+ }
+html += '</p>' ;
+return html;
+document.getElementById('quote-box').innerHTML = html;
+}
+printQuote();
+
+
+
+
 
 
 /***
