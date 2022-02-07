@@ -7,7 +7,7 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-// quotes array //
+// quotes array 
 
   const quotes = [
   
@@ -37,6 +37,7 @@ project 1 - A Random Quote Generator
    
  ];
 
+ // console.log(quotes);
 
 
 /***
