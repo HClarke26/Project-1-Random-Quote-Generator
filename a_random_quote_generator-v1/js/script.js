@@ -3,7 +3,7 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// Array of quotes including quotes, source, year, citation and tags
+// Array of quotes including quotes, source, year, citation and tags.
   const quotes = [
   
     { quote: "The greatest mistake you can make in life is to be continually fearing you will make one.", 
@@ -31,16 +31,22 @@ project 1 - A Random Quote Generator
       source: "Mark Twain" },
    
  ];
- // console.log(quotes);
+ // console.log(quotes); --- Test to check array.
 
 
- // setInterval method used to run printQuote fucntion every 10000 milliseconds 
+ // setInterval method used to run printQuote fucntion every 10000 milliseconds. 
  let refreshInterval = window.setInterval(printQuote, 10000);
 
 
-// getRandomQuote funtion
+// Function to generate a random number to use for RGB value.
+function randomColourNumber(){
+  return Math.floor(Math.random() * 256);
+}
+
+
+// getRandomQuote funtion - Generates random number between 0 and the length of the quotes array.
 function getRandomQuote () {
-  let randomNumber = Math.floor(Math.random() * quotes.length); // Generates random number between 0 and the length of quotes array.
+  let randomNumber = Math.floor(Math.random() * quotes.length); 
   return quotes[randomNumber] 
 }
 getRandomQuote();
@@ -48,10 +54,18 @@ getRandomQuote();
 
 // printQuote function
 function printQuote () {
-let randomQuoteObject = getRandomQuote(); // Calls getRandomQuote function.
-let html = '' ; // Starts empty string. 
-html += '<p class="quote">' + randomQuoteObject.quote + '</p>' ;
-html += '<p class="source">' + randomQuoteObject.source ;
+  
+  // Calling randomColourNumber funtion and storing it in variables in order to build a RGB string
+  let red = randomColourNumber();
+  let green = randomColourNumber();
+  let blue = randomColourNumber();
+  let rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+
+// Building hmtl string to output
+  let randomQuoteObject = getRandomQuote(); // Calls getRandomQuote function.
+  let html = '' ; // Starts empty string. 
+  html += '<p class="quote">' + randomQuoteObject.quote + '</p>' ;
+  html += '<p class="source">' + randomQuoteObject.source ;
 
 // Conditional statments.....
 
@@ -66,6 +80,7 @@ html += '<p class="source">' + randomQuoteObject.source ;
  }
 html += '</p>' ;
 document.getElementById('quote-box').innerHTML = html;
+document.body.style.backgroundColor = rgbColor; // Found online @ https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp
 }
 printQuote();
 
