@@ -3,7 +3,7 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// Array of quotes
+// Array of quotes including quotes, source, year, citation and tags
   const quotes = [
   
     { quote: "The greatest mistake you can make in life is to be continually fearing you will make one.", 
@@ -25,14 +25,18 @@ project 1 - A Random Quote Generator
    
     { quote: "You miss 100% of the shots you don't take.", 
       source: "Wayne Gretzky",
-      tags: "Sport" },
+      tags: "Sport, Inspirational" },
    
     { quote: "The secret of getting ahead is getting started.", 
       source: "Mark Twain" },
    
  ];
-
  // console.log(quotes);
+
+
+ // setInterval method used to run printQuote fucntion every 10000 milliseconds 
+ let refreshInterval = window.setInterval(printQuote, 10000);
+
 
 // getRandomQuote funtion
 function getRandomQuote () {
@@ -42,21 +46,23 @@ function getRandomQuote () {
 getRandomQuote();
 
 
-
 // printQuote function
 function printQuote () {
 let randomQuoteObject = getRandomQuote(); // Calls getRandomQuote function.
 let html = '' ; // Starts empty string. 
 html += '<p class="quote">' + randomQuoteObject.quote + '</p>' ;
 html += '<p class="source">' + randomQuoteObject.source ;
-  if ("citation" in randomQuoteObject) { //if statement to validate whether the object contains a citation.
+
+// Conditional statments.....
+
+  if ("citation" in randomQuoteObject) { 
  html += "<span class='citation'> " + randomQuoteObject.citation + "</span>";
 }
-  if ("year" in randomQuoteObject) { //if statement to validate whether the object contains a year.
+  if ("year" in randomQuoteObject) { 
   html += "<span class='year'> " + randomQuoteObject.year + "</span>";
  }
-  if ("tags" in randomQuoteObject) { //if statement to validate whether the object contains a tag/tags.
-  html += "<span class='tags'> " + ', tags: ' + randomQuoteObject.tags + "</span>";
+  if ("tags" in randomQuoteObject) { 
+  html += "<span class='tags'> " + '- tags: ' + randomQuoteObject.tags + "</span>";
  }
 html += '</p>' ;
 document.getElementById('quote-box').innerHTML = html;
